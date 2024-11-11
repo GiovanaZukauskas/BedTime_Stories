@@ -251,6 +251,7 @@ main {
   gap: 2em; /* Espaçamento mais uniforme */
   padding: 2em; /* Espaçamento interno */
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .bloco img {
@@ -375,3 +376,150 @@ footer img{
 footer p{
   font-size: 20px;
 }
+
+.sessao.chapeuzinho {
+  height: 100vh; 
+  background-image: url(imagens/01.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover; 
+  width: 100%; 
+  margin: 0;
+}
+  
+  .container2.chapeuzinho{
+    flex-direction: column;
+    gap: 30px;
+
+  }
+
+  .container2.chapeuzinho h1{
+    font-size: 60px;
+    color: #8B0000;
+    font-family: 'Gwendolyn', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container2.chapeuzinho p{
+    font-size: 20px;
+    width: 67%;
+    text-align: center;
+  }
+
+  .sessao.tartaruga {
+    height: 100vh; 
+    background-image: url(imagens/02.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover; 
+    width: 100%; 
+    margin: 0;
+  }
+    
+    .container2.tartaruga{
+      flex-direction: column;
+      gap: 10px;
+  
+    }
+  
+    .container2.tartaruga h1{
+      font-size: 60px;
+      color: #8B0000;
+      font-family: 'Gwendolyn', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .container2.tartaruga p{
+      font-size: 20px;
+      width: 58%;
+      text-align: center;
+    }
+
+    .sessao.formiga {
+      height: 100vh; 
+      background-image: url(imagens/03.png);
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover; 
+      width: 100%; 
+      margin: 0;
+    }
+      
+      .container2.formiga{
+        flex-direction: column;
+        gap: 10px;
+    
+      }
+    
+      .container2.formiga h1{
+        font-size: 60px;
+        color: #8B0000;
+        font-family: 'Gwendolyn', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    
+      .container2.formiga p{
+        font-size: 20px;
+        width: 58%;
+        text-align: center;
+      }
+
+      .menu {
+        width: 100%;
+        height: 50px; 
+        color:#8B0000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed; 
+        font-size: 20px;
+        top: 0;
+        left: 0;
+        gap: 1000px;
+        margin-top: 1em;
+        cursor: pointer;
+ 
+    }
+
+    .menu2 {
+      width: 100%;
+      height: 50px; 
+      color:#8B0000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed; 
+      font-size: 20px;
+      top: 0;
+      left: 0;
+      gap: 1000px;
+      margin-top: 1em;
+      cursor: pointer;
+
+  }
+
+  .menu3 {
+    width: 100%;
+    height: 50px; 
+    color:#8B0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; 
+    font-size: 20px;
+    top: 0;
+    left: 0;
+    gap: 1000px;
+    margin-top: 1em;
+    cursor: pointer;
+
+}
+
+    
+    
