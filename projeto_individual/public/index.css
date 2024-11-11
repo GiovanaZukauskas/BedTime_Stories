@@ -247,16 +247,16 @@ main {
   justify-content: center;
   align-items: center;
   background-color: #000;
-  text-align: center; /* Centraliza horizontalmente */
-  gap: 2em; /* Espaçamento mais uniforme */
-  padding: 2em; /* Espaçamento interno */
+  text-align: center; 
+  gap: 2em; 
+  padding: 2em; 
   border-radius: 20px;
   cursor: pointer;
 }
 
 .bloco img {
   width: 85%;
-  height: auto; /* Ajuste automático de altura */
+  height: auto; 
   margin: 0;
 }
 
