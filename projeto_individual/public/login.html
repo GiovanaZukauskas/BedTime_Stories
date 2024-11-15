@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login</title>
+    <link rel="shortcut icon" href="assets/icon.png">
+</head>
+
+<body>
+    <div class="transicao"></div>
+    <div class="container">
+        <nav>
+            <a href="index.html"><img src="imagens/logo_lobo.png" /></a>
+        </nav>
+
+        <div class="login">
+
+            <span class="titulo-login">Login</span>
+
+            <div class="info-login">
+                <span class="titulo-input-login">E-mail</span>
+                <input class="input-login" type="text" id="input_email" placeholder="user@gmail.com">
+            </div>
+
+            <div class="info-login">
+                <span class="titulo-input-login">Senha</span>
+                <input class="input-login" type="password" id="input_senha" placeholder="******">
+            </div>
+
+            <div class="outros-login">
+                <span class="outro-login">Esqueceu a senha?</span>
+                <a onclick="transicaoCadastro()"> <span class="outro-login" onclick="ircadastro()">Não tem uma conta?
+                        Cadastrar</span></a>
+            </div>
+
+            <span class="outro-login-mensagem" id="mensagem"></span>
+            <button onclick="entrar()" class="botao-login"><span class="botao-anim">Entrar</span></button>
+
+        </div>
+
+
+        <img class="fundo" src="imagens/login.png">
+
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    window.onload = function () {
+        setTimeout(document.querySelector('div').classList.add("active"), 1000)
+    }
+
+
+    function entrar() {
+        const email = input_email.value;
+        const senha = input_senha.value;
+
+        if (email == '' || senha == '') {
+            mensagem.style.color = 'red'
+            mensagem.innerHTML = 'Insira um login e senha'
+            setTimeout(function () { mensagem.innerHTML = '' }, 1000)
+        } else {
+
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: email,
+                    senhaServer: senha
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.idUsuario;
+
+                        setTimeout(function () { window.location = 'dashboard.html' }, 1000); // apenas para exibir o loading
+
+
+                    });
+
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+                    mensagem.style.color = 'red'
+                    mensagem.innerHTML = 'E-mail e /ou senha inválidos'
+                    setTimeout(function () { mensagem.innerHTML = '' }, 1000)
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                    
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+        }
+    }
+
+    function transicaoCadastro() {
+        document.querySelector('div').classList.add("cadastro")
+        setTimeout(function () { window.location = 'cadastro.html' }, 1000)
+    }
+
+    function transicaoHome() {
+        document.querySelector('div').classList.remove("active")
+        setTimeout(function () { window.location = 'index.html' }, 1000)
+    }
+
+
+</script>
